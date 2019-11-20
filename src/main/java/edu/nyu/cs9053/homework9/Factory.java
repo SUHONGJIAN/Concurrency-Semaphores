@@ -7,14 +7,14 @@ import java.util.concurrent.Semaphore;
  */
 public class Factory {
 
-    public static final Semaphore BINARY_SEMAPHORE = new Semaphore(1);
+    private static final Semaphore BINARY_SEMAPHORE = new Semaphore(1);
 
     public static Customer createCustomer() {
-        return new CustomerImplementation();
+        return new CustomerImplementation(BINARY_SEMAPHORE);
     }
 
     public static Barista createBarista() {
-        return new BaristaImplementation();
+        return new BaristaImplementation(BINARY_SEMAPHORE);
     }
 
 }
