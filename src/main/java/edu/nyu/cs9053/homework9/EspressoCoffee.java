@@ -1,6 +1,6 @@
 package edu.nyu.cs9053.homework9;
 
-public class EspressoCoffee implements CoffeeDrink{
+public class EspressoCoffee implements CoffeeDrink {
 
     private final boolean decaf;
 

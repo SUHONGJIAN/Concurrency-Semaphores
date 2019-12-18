@@ -1,5 +1,6 @@
 package edu.nyu.cs9053.homework9;
 
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -37,7 +38,22 @@ public final class CustomerImplementation implements Customer {
                 return null;
             }
             else {
-                return queue.addOrder(coffeeDrink);
+                CoffeeDrink randomCoffee;
+                Random random = new Random();
+                switch (random.nextInt(3)) {
+                    case 0:
+                        randomCoffee = new CappuccinoCoffee();
+                        break;
+                    case 1:
+                        randomCoffee = new EspressoCoffee();
+                        break;
+                    case 2:
+                        randomCoffee = new FlatWhiteCoffee();
+                        break;
+                    default:
+                        randomCoffee = coffeeDrink;
+                }
+                return queue.addOrder(randomCoffee);
             }
         } finally {
             binarySemaphore.release();
